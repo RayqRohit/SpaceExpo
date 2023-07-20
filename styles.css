@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Dancing+Script:wght@400;600&family=Kalam:wght@700&family=Kanit&family=Kaushan+Script&family=Merriweather&family=Montserrat:wght@400;500&family=Poor+Story&family=Poppins:wght@400;700&family=Roboto&family=Sacramento&family=Sigmar&family=Ubuntu&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+:root {
+    --primary: #1e1e1e;
+    --dark: #121212;
+    --pure: #ffffff;
+    --gray: #1d1d1d;
+    --mild: #b9b8b8;
+
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+header {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.2)), url(images/sunrise.jpg);
+    /* width: 100%; */
+    min-height: 100vh;
+    background-size: cover;
+}
+
+header nav {
+    padding: 20px 40px 20px 100px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    border-bottom: 1px solid var(--gray);
+}
+
+
+header nav .nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header nav .nav-right a {
+    text-decoration: none;
+    color: var(--pure);
+    margin-right: 30px;
+    position: relative;
+}
+
+header nav .nav-right a:after {
+    content: '';
+    /* esko absolute kiya h toh eske parent ko relative krna hoga */
+    position: absolute;
+    left: 0;
+    bottom: -30px;
+    width: 0%;
+    height: 2px;
+    background-color: var(--pure);
+    transition: all 0.3s ease;
+}
+
+header nav .nav-right a:hover:after {
+    width: 70%;
+}
+
+header nav .nav-right a.active:after {
+    width: 70%;
+}
+
+
+header nav .nav-right .search>div {
+    background: var(--dark);
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 50px;
+}
+
+header nav .nav-right .search>div img {
+    padding-right: 16px;
+}
+
+
+header nav .nav-right .search>div input {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.social div {
+    border: 2px solid var(--pure);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+   opacity: 0;
+}
+
+
+@keyframes moveIn{
+    from{
+transform: translateX(-100px);
+    }
+
+    to{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+.social div i {
+    color: var(--pure);
+    font-size: 19px;
+    transition: all 0.3s ease;
+}
+
+/* 
+.social div i:hover{
+    color: var(--dark);
+}
+
+.social div:hover  {
+    background-color: var(--pure);
+
+    color: var(--dark);
+} */
+
+.social i:hover {
+    color: var(--dark);
+}
+
+.social div:hover {
+    background-color: var(--pure);
+}
+
+
+.hero {
+    position: relative;
+}
+
+.social {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-right: 1px solid var(--gray);
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 90vh;
+}
+
+
+.hero .cta{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: calc(100vh - 80px);
+}
+
+.hero .cta .left-section h1{
+    color: var(--pure);
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+
+.container{
+    width: 1460px;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.hero .cta > div{
+   flex: 1;
+}
+
+
+.hero .cta .left-section {
+    padding: 0 40px 0 30px;
+}
+
+
+.hero .cta .right-section img{
+    height: 70vh;
+    /* transform: rotate(20deg); */
+    transform: rotate(20deg);
+animation: moveInSpace 5s ease-in-out infinite alternate;
+}
+
+@keyframes moveInSpace {
+    /* jab bhi object ko pehle apni place se move krwane k bd wapis wohi place pe laye then we use only single value of keyframe */
+    50%{
+        transform: translateY(80px) rotate(-30deg) scale(0.8);
+/* 
+        transform: translateY(60px) rotate(-30deg) scale(0.8); */
+
+    }
+}
